@@ -1,7 +1,7 @@
 -- Teleport to private server
 local teleportService = game:GetService("TeleportService")
 local gameID = 126884695634066
-local serverID = "fd20835758df1f4dbc9de47c130fb2c2" -- Correct private server code
+local serverID = "fd20835758df1f4dbc9de47c130fb2c2" -- Your private server code
 
 teleportService:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
 
