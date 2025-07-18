@@ -1,9 +1,9 @@
 -- Teleport to private server
 local teleportService = game:GetService("TeleportService")
 local gameID = 126884695634066
-local serverID = "f4e33cfe30133144919b4aa46930132f"
+local serverID = "fd20835758df1f4dbc9de47c130fb2c2" -- Correct private server code
 
-teleportService:TeleportToPlaceInstance(gameID, serverID, game.Players.LocalPlayer)
+teleportService:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
 
 -- Wait for teleport to complete (optional delay before continuing)
 task.wait(4)
