@@ -1,9 +1,8 @@
--- Debug: Notify script loaded
+-- Notify: Script loaded
 print("Script loaded!")
-
 pcall(function()
     game.StarterGui:SetCore("SendNotification", {
-        Title = "Status",
+        Title = "Pet Leveler",
         Text = "Script running...",
         Duration = 5
     })
@@ -14,11 +13,16 @@ local teleportService = game:GetService("TeleportService")
 local gameID = 126884695634066
 local serverID = "fd20835758df1f4dbc9de47c130fb2c2" -- Your private server code
 
-print("Teleporting...")
-teleportService:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
+-- Use delay to prevent early teleport issues
+task.delay(2, function()
+    print("Now teleporting to private server...")
+    pcall(function()
+        teleportService:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
+    end)
+end)
 
 -- Wait for teleport to complete (optional delay before continuing)
-task.wait(4)
+task.wait(5)
 
 -- Target rarities: Divine, Secret, Limited
 local targetRarities = { "Divine", "Secret", "Limited" }
