@@ -21,8 +21,17 @@ task.delay(2, function()
     end)
 end)
 
--- Wait for teleport to complete (optional delay before continuing)
-task.wait(5)
+-- Wait before continuing pet logic (runs even if teleport fails)
+task.wait(6)
+
+-- Optional: Let user know teleport might've failed
+pcall(function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Pet Leveler",
+        Text = "Continuing... (teleport may have failed)",
+        Duration = 5
+    })
+end)
 
 -- Target rarities: Divine, Secret, Limited
 local targetRarities = { "Divine", "Secret", "Limited" }
