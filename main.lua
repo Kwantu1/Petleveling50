@@ -1,8 +1,20 @@
+-- Debug: Notify script loaded
+print("Script loaded!")
+
+pcall(function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Status",
+        Text = "Script running...",
+        Duration = 5
+    })
+end)
+
 -- Teleport to private server
 local teleportService = game:GetService("TeleportService")
 local gameID = 126884695634066
 local serverID = "fd20835758df1f4dbc9de47c130fb2c2" -- Your private server code
 
+print("Teleporting...")
 teleportService:TeleportToPrivateServer(gameID, serverID, {game.Players.LocalPlayer})
 
 -- Wait for teleport to complete (optional delay before continuing)
